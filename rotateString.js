@@ -12,3 +12,7 @@ var rotateString = function(A, B) {
     }
     return false;
 };
+
+var rotateString = function(A, B) {
+    return B.repeat(2).includes(A) && A.length === B.length;
+};
