@@ -12,3 +12,16 @@ var judgeCircle = function(moves) {
     if (hash['U'] === hash['D'] && hash['R'] === hash['L']) return true;
     return false;
 };
+
+// Faster solution. no hash initialization
+
+var judgeCircle = function(moves) {
+    let hash = {};
+    
+    for (let move of moves) {
+        if (hash[move]) hash[move]++;
+        else hash[move] = 1;
+    }
+    if (hash['U'] === hash['D'] && hash['R'] === hash['L']) return true;
+    return false;
+};
