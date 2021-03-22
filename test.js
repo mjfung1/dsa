@@ -1,7 +1,5 @@
 
 
-for (let i=0; i < 5; i++) {
-    if (i === 3) continue;
-    console.log(i)
-    
-}
+const grid = [[0,2]]
+
+console.log(grid[0][0]);
