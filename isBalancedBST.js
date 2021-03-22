@@ -4,6 +4,9 @@ var isBalanced = function(root) {
     let left = getDepth(root.left);
     let right = getDepth(root.right);
     let balanced = Math.abs(left - right) <= 1;
+
+    // this step is like the hand in the video. where it just spreads
+    // checking untile there is no more root
     return balanced && isBalanced(root.left) && isBalanced(root.right)
     
 };
