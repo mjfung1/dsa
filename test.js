@@ -1,7 +1,4 @@
-const set = new Set();
+let str = 'bdaaaafff';
+str = str.slice(0, 2) + str.slice(6)
 
-set.add(4, 2)
-set.add(4, 2)
-set.add(2)
-set.add(3, 2)
-console.log(set);
+console.log(str)
