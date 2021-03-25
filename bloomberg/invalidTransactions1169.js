@@ -1,3 +1,7 @@
+// TRICK TO THIS QUESTION. CREATE A HASH FIRST.
+// THEN ITERATE THRU AGAIN TO CHECK VALIDNESS WITH A HELPER FUNCTION
+
+
 var isValid = function(transaction, map) {
     const [name, time, amount, city] = transaction.split(',');
     
