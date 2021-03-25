@@ -1,4 +1,4 @@
-let str = 'bdaaaafff';
-str = str.slice(0, 2) + str.slice(6)
-
-console.log(str)
+const arr = [1,2,3,4,5]
+console.log(arr)
+arr.length = 7;
+console.log(arr)
