@@ -1,8 +1,3 @@
-const map = new Map();
-
-const people = map.set('1', {score: 2})
-const people1 = map.set('1', {score: 0})
-const people4 = map.set('1', {score: 6})
-const people2 = map.set('2', {score: 3})
-
-console.log(map)
+const map = [10,2,3,4,5]
+const map1 = Math.min(...map)
+console.log(map1)
