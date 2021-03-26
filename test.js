@@ -1,6 +1,6 @@
 
-let arr = [1,2,3,45]
+let num = 1234;
+console.log(typeof(num));
 
-for (let index of arr) {
-    console.log(index)
-}
+let stringNum  = `${num}`;
+console.log(typeof(stringNum))
