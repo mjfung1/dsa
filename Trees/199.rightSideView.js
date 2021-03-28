@@ -4,6 +4,9 @@ var rightSideView = function(root) {
     function traverse(node, level) {
         if (!node) return;
         
+
+        // THIS IS THE KEY TO IT ALL.  
+        // ONLY GOING TO TAKE ONE VALUE FOR EACH LEVEL AKA INDEX
         if (!output[level]) {
             output.push(node.val);
         }
