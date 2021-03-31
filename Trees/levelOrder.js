@@ -20,3 +20,25 @@ var levelOrder = function(root) {
 //     and push to new array until no values left in queue
     return result;
 };
+
+
+//////// dfs way
+
+var levelOrder = function(root) {
+    const result = [];
+    
+    function dfs(root, level) {
+        if (!root) return;
+        
+        if (!result[level]) result[level] = [];
+        
+        result[level].push(root.val)
+        
+        dfs(root.left, level + 1)
+        dfs(root.right, level + 1)
+    }
+    
+    
+    dfs(root, 0);
+    return result;
+};
