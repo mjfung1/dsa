@@ -1,30 +1,32 @@
-var numEnclaves = function(A) {
-  
-  for (let i = 0; i < A.length; i++) {
-    for (let j = 0; j < A[0].length; j++) {
-      if ((i == 0 || j == 0 || j == A[0].length - 1 || i == A.length - 1) && A[i][j] == 1) landToWater(A, i, j)
+var numEnclaves = function(grid) {
+    let numLand = 0;
+    const rows = grid.length;
+    const cols = grid[0].length;
+    
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++ ) {
+            if ((row === 0 || col === 0 || row === rows-1 || col === cols-1) && grid[row][col] === 1) walkOff(grid, row, col)
+        }
     }
-  }
-  
-  let count = 0
-  for (let i = 1; i < A.length - 1; i++) {
-    for (let j = 1; j < A[0].length - 1; j++) {
-      if (A[i][j] == 1) count += 1
+    
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++ ) {
+            if (grid[row][col] === 1) numLand++;
+        }
     }
-  }
-  return count
+    
+    return numLand;
 };
 
 
-var landToWater = function(grid, row, col) {
+var walkOff = function(grid, row, col) {
     if (row < 0 || col < 0 || row >= grid.length || col >= grid[0].length) return;
     if (grid[row][col] === 0) return;
     
-    const positions = [[1,0],[-1,0],[0,1],[0,-1]];
-    
     grid[row][col] = 0;
     
-    for (let [rowIdx, colIdx] of positions) {
-        landToWater(grid, row + rowIdx, col + colIdx);
-    }
+    walkOff(grid, row+1, col)
+    walkOff(grid, row-1, col)
+    walkOff(grid, row, col+1)
+    walkOff(grid, row, col-1)
 }

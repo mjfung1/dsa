@@ -10,8 +10,6 @@ var numIslands = function(grid) {
         }
     }
     
-    
-    
     return numIslands;
 };
 
