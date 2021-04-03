@@ -1,6 +1,49 @@
 var solve = function(board) {
     if (!board || board.length === 0) return;
     
+    const rows = board.length;
+    const cols = board[0].length;
+    
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++ ) {
+            if ((row === 0 || col === 0 || row === rows-1 || col === cols-1) && board[row][col] === 'O') capture(board, row, col)
+        }
+    }
+    
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            if (board[row][col] === 'O') {
+                board[row][col] = 'X'
+            }
+            if (board[row][col] === 'E') {
+                board[row][col] = 'O'
+            }
+        }
+    }
+    return board
+};
+
+var capture = function(board, row, col) {
+    if (row < 0 || col < 0 || row >= board.length || col >= board[0].length) return;
+    if (board[row][col] !== 'O') return;
+    
+    
+    board[row][col] = 'E';
+    
+    capture(board, row+1, col)
+    capture(board, row-1, col)
+    capture(board, row, col+1)
+    capture(board, row, col-1)
+    
+
+};
+
+//////////////more efficient way///////
+
+
+var solve = function(board) {
+    if (!board || board.length === 0) return;
+    
     let rows = board.length;
     let columns = board[0].length;
     
