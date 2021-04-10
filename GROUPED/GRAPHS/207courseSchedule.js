@@ -14,8 +14,6 @@ var canFinish = function(numCourses, prerequisites) {
     for (let course = 0; course < numCourses; course++) {
         // false if cycle is found
         if (!dfs(course)) return false;
-       
-        
     }
     
     function dfs(course) {
