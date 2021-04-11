@@ -10,9 +10,11 @@ var lengthOfLongestSubstringTwoDistinct = function(s) {
         
         freq[char] = freq[char] + 1 || 1
         
-        while (Object.keys(freq).length > 2) {
+        while (Object.keys(freq).length > 2) { 
+
             freq[s[left]]--;
             if (freq[s[left]] === 0) delete freq[s[left]];
+            
             left++
         }
         

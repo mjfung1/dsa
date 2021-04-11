@@ -13,6 +13,7 @@ var minSubArrayLen = function(target, nums) {
             minSize = Math.min(minSize, (right+1 - left))
             let num1 = nums[left];
             sum = sum - num1;
+            
             left++;
         }
        
