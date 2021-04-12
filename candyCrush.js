@@ -1,30 +1,3 @@
-// function candyCrush(strs) {
-//     let stack = [strs[0]];
-    
-//     for (let i = 1; i < strs.length; i++) {
-//         let prevLetter = [stack.pop()];
-//         let currentLetter = strs[i];
-//         if (prevLetter.includes(currentLetter)) {
-//             prevLetter.push(currentLetter);
-//             stack.push(prevLetter);
-//         } 
-//         if (!prevLetter.includes(currentLetter)){
-//             if (prevLetter.length > 3) {
-                
-//                 stack.push([currentLetter]);
-//             } else {
-//                 stack.push(prevLetter);
-//                 stack.push([currentLetter]);
-//             }
-            
-//         }
-        
-       
-        
-        
-//     }
-//     return stack.flat().join('')
-// };
 
 function candyCrush(string) {
     const stack = [];
