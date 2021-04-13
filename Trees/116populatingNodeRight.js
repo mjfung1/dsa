@@ -9,15 +9,12 @@ var connect = function(root) {
         let size = queue.length;
         
         while (size--) {
-            
             const item = queue.shift();
             if (size === 0) {
                 item.next = null;
-                
             } else {
                 item.next = queue[0]
             }
-            
             if (item.left) queue.push(item.left)
             if (item.right) queue.push(item.right)
 
