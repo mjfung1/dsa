@@ -25,3 +25,29 @@ var increasingBST = function(root) {
     
     return current.right;
 };
+
+
+////////////////////////////////
+
+var increasingBST = function(root) {
+    let current = new TreeNode();
+    let dummy = current;
+    
+    
+    //inorder traversal
+    function dfs(node) {
+        if (!node) return;
+        
+        dfs(node.left)
+        dummy.right = new TreeNode(node.val)
+        dummy = dummy.right;
+        dfs(node.right)
+    }
+    
+    dfs(root);
+    
+
+
+    
+    return current.right;
+};
