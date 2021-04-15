@@ -1,4 +1,4 @@
-332. Reconstruct Itinerary
+// 332. Reconstruct Itinerary
 
 var findItinerary = function(tickets) {    
     const adjacency = {};
@@ -18,15 +18,14 @@ var findItinerary = function(tickets) {
         }
     }
 
+    const output = [];
     
-    const output = []
-    function dfs(start) {
+    function dfs(airline) {
         
-        while(adjacency[start] && adjacency[start].length) {
-            dfs(adjacency[start].shift());
+        while(adjacency[airline] && adjacency[airline].length) {
+            dfs(adjacency[airline].shift());
         }
-        output.push(start);
-
+        output.push(airline);
     }
     
     dfs('JFK')
