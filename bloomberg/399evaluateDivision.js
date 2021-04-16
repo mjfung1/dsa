@@ -3,7 +3,17 @@
 var calcEquation = function(equations, values, queries) {
     const graph = buildGraph(equations, values);
     
-    return queries.map(query => exchanger(query[0], query[1], graph, new Set()))
+    return queries.map(query => {
+        const [cash1, cash2] = query;
+
+        let result = exchanger(cash1, cash2, graph, new Set())
+
+        graph[cash1] = { ...graph[cash1], [cash2]: result } || { [cash2]: result };
+        graph[cash2] = { ...graph[cash2], [cash1]: 1/result } || { [cash1]: 1/result }
+ 
+        return result;
+    // return exchanger(queries[0], queries[1], graph, new Set())
+    })
 };
 
 const exchanger = (cash1, cash2, graph, visited) => {
@@ -17,7 +27,9 @@ const exchanger = (cash1, cash2, graph, visited) => {
         visited.add(money);
         
         let temp = exchanger(money, cash2, graph, visited);
-        if (temp !== -1) return graph[cash1][money] * temp;
+        if (temp !== -1) {
+            return graph[cash1][money] * temp;
+        }
         
     }
     
@@ -39,3 +51,10 @@ const buildGraph = (equations, values) => {
     }
     return graph;
 }
+
+const equations1 = [['USD', 'JPY'], ['USD', 'AUD'], ['JPY', 'GBP']]
+const exchange1 = [110.0, 1.45, 0.0070]
+// const quer = ['GBP', 'AUD']
+const quer = [['GBP', 'AUD']]
+
+console.log(calcEquation(equations1, exchange1, quer))
