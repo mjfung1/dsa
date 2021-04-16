@@ -61,3 +61,5 @@ var findItinerary = function(tickets) {
     dfs('JFK')
     return output;
 };
+
+console.log(findItinerary([["JFK","KFC"],["JFK","NPC"],["NPC","JFK"],["JFK","PTO"],["JFK","PFO"]]))
