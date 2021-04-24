@@ -3,6 +3,7 @@ var generateParenthesis = function(n) {
     
     function comboMaker(open, close, combo) {
         if (open > close) return;
+        
         if (!open && !close) output.push(combo);
         
         if (open > 0) comboMaker(open-1, close, combo + '(');
