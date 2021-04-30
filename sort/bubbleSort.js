@@ -3,6 +3,7 @@ const bubbleSort = (arr) => {
 
     while (notSorted) {
         notSorted = false
+        
         for (let i = 0; i < arr.length; i++) {
             let num = arr[i];
             let nextNum = arr[i+1];
