@@ -18,7 +18,7 @@ var candyCrush = function(board) {
             let num2 = Math.abs(board[row][col+1]);
             let num3 = Math.abs(board[row][col+2]);
             
-            if (num1 === num2 && num2 === num3 && num1 !==0) {
+            if (num1 === num2 && num2 === num3 && num1 !== 0) {
                 board[row][col] = -num1;
                 board[row][col+1] = -num2;
                 board[row][col+2] = -num3;
