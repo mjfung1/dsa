@@ -1,4 +1,6 @@
 // short version
+// Time Complexity: O(n log(n))
+// Space Complexity: O(n)
 function merge(array1, array2) {
     const merged = [];
 
