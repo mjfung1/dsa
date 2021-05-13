@@ -3,6 +3,7 @@
 // Optimal Solution. 
 // Time O(n)
 // NO EXTRA SPACE - this is what interviewer wnated. 
+// SEGREGATE EVEN AND ODDS.
 var sortArrayByParity = function(A) {
     let left = 0;
     let right = A.length-1;
