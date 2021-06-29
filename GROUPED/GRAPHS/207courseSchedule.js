@@ -15,8 +15,7 @@ var canFinish = function(numCourses, prerequisites) {
         // false if cycle is found
         if (!dfs(course)) return false;
     }
-    
-    function dfs(course) {
+ function dfs(course) {
         // if we run into a node that we saw earlier in current dfs, it's a cycle
         if (visited[course] === -1) return false;
         
