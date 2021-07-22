@@ -1,6 +1,7 @@
 var countComponents = function(n, edges) {
     const adjacency = {};
-    
+    const connections = [];
+
     //visited prevents from counting components twice
     const visited = {};
     
@@ -18,8 +19,8 @@ var countComponents = function(n, edges) {
     // create a dfs that will visit
     function visit(node) {
         visited[node] = true;
-        
-        for (const adjacent of adjacency[node]) {
+        connections[node] = output;
+        for (let adjacent of adjacency[node]) {
             if (!visited[adjacent]) visit(adjacent)
         }
     }
@@ -29,11 +30,18 @@ var countComponents = function(n, edges) {
     // for loop prevents us from missing a unconnected component
     for (let node = 0; node < n; node++) {
         if (!visited[node]) {
+            
+            visit(node);
             output++;
-            visit(node)
         }
     }
     
-    
+    console.log(connections)
     return output;
 };
+
+
+
+// let vertices = [[8, 5], [1, 2], [2, 3], [2, 4], [3, 5], [6, 7]]  // 3 components
+let vertices = [[1,5],[0,2],[2,4],[3,3]]
+console.log(countComponents(6, vertices))
