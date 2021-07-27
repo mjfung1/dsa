@@ -31,8 +31,8 @@ var findKthLargest = function(nums, k) {
 
 
 // ----------------------------------------- //
-// slight improvement???
-// time = 0( n log (n) ) max heap.
+// slight improvement??? no.
+// time = 0( n log (n) ) max heap.   so why not use sorting??? solution above!!
 
 var findKthLargest = function(nums, k) {
     let heapify = new MaxBinaryHeap();

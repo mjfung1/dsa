@@ -23,3 +23,25 @@ var minMeetingRooms = function(intervals) {
 
     return meetingEndTimes.length;
 };
+
+
+
+// ---------------------------------- //
+// MIN PRIORITY QUEUE IMPLEMENTATION
+
+var minMeetingRooms = function (intervals) {
+    intervals.sort((a, b) => a[0] - b[0]);
+
+    const minpq = new MinPriorityQueue();
+
+    for (const meeting of intervals) {
+        if (!minpq.isEmpty() && minpq.front().element <= meeting[0]) {
+            minpq.dequeue();
+        }
+        minpq.enqueue(meeting[1]);
+    }
+
+    return minpq.size();
+
+};
+
