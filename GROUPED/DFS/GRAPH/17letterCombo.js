@@ -16,13 +16,14 @@ var letterCombinations = function(digits) {
     const combinations = [];
     
     function comboMaker(idx, combo) {
-        if (idx >= digits.length) {
+        if (idx === digits.length) {
             combinations.push(combo);
             return;
         }
         
         let digit = digits[idx];
-        for (const char of phone[digit]) {
+        let letters = phone[digit]
+        for (const char of letters) {
             comboMaker(idx+1, combo + char)
         }
         
