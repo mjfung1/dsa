@@ -18,3 +18,28 @@ var lengthOfLongestSubstring = function(s) {
     
     return longest
 };
+
+
+// ---------------------------------------- // 
+// another implementation
+// while loops;
+var lengthOfLongestSubstring = function(s) {
+    let left = 0;
+    let right = 0;
+    let chars = new Set();
+    let longest = 0;
+    while (right < s.length) {
+        let char = s[right];
+        
+        while (chars.has(char)) {
+            chars.delete(s[left]);
+            left++;
+        }
+        chars.add(char);
+        right++;
+        
+        longest = Math.max(longest, chars.size)
+    }
+    
+    return longest;
+};
