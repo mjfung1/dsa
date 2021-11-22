@@ -10,7 +10,8 @@ var isValid = function(transaction, map) {
     const attributes = map[name];
     
     for (const attribute of attributes) {
-        if (city !== attribute.citys && Math.abs(time - attribute.times) <= 60) return true;
+        if (city !== attribute.citys 
+            && Math.abs(time - attribute.times) <= 60) return true;
     };
     return false;
 };
@@ -29,6 +30,8 @@ var invalidTransactions = function(transactions) {
             mapTransactions[name] = [{times: time, citys: city}];
         };
     };
+
+
 
     
     for (const transaction of transactions) {
