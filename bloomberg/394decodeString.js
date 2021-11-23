@@ -8,7 +8,7 @@ var decodeString = function(s) {
     const chars = [];
     let decoded = '';
     
-    // github 
+    // github gdda
     // s = "3[a2[c]]"
     for (const char of s) {
         
